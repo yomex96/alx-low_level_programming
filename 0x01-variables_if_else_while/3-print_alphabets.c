@@ -1,5 +1,3 @@
-#include <stdlib.h>
-#include <time.h>
 #include <stdio.h>
 
 /**
@@ -9,22 +7,19 @@
 
 int main(void)
 {
-        char c;
-
-        char d;
-
-        c = 'a';
-	d = 'A';
-        while
-                (c <= 'z') {
-                        putchar(c);
-                        c++;
-                }
-	while
-                (d <= 'z') {
-			putchar(d);
-			d++;
-		}
+        char Lower = 'a';
+	char Upper = 'A';
+       
+	while (Lower <= 'z')
+	{
+                        putchar(Lower);
+                        Lower++;
+	}
+	while (Upper <= 'Z')
+	{
+			putchar(Upper);
+			Upper++;
+	}
 	putchar('\n');
 	return (0);
 }
