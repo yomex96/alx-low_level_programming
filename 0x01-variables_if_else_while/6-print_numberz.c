@@ -7,13 +7,13 @@
 
 int main(void)
 {
-        int  alphabets = '0';
+	int  alphabets = '0';
 
-        while (alphabets <= '9')
-        {
-                putchar(alphabets);
-                alphabets++;
-        }
+	while (alphabets <= '9')
+	{
+		putchar(alphabets);
+		alphabets++;
+	}
 	putchar('\n');
-        return (0);
+	return (0);
 }
