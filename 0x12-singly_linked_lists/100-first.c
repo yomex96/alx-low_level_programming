@@ -1,26 +1,18 @@
-#include "lists.h"
+/*
+ * File: 100-first.c
+ * Auth: abayomi
+ */
+
+#include <stdio.h>
+
+void __attribute__((constructor)) hare(void);
 
 /**
- * free_list - frees a list_t list.
- * @head: pointer to the list.
- **/
-void free_list(list_t *head)
+ * hare - Prints a string before the
+ *        main function is executed.
+ */
+void hare(void)
 {
-	list_t *actual_node;
-	list_t *next_node;
-
-	if (head)
-	{
-		actual_node = head;
-		next_node = head->next;
-		while (next_node)
-		{
-			free(actual_node->str);
-			free(actual_node);
-			actual_node = next_node;
-			next_node = next_node->next;
-		}
-		free(actual_node->str);
-		free(actual_node);
-	}
+	printf("You're beat! and yet, you must allow,\n"
+	       "I bore my house upon my back!\n");
 }
