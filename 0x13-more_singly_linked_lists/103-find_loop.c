@@ -1,43 +1,33 @@
-/*
- * File: 103-find_loop.c
- * Auth: abayomi robert onawole
- */
-
 #include "lists.h"
 
 /**
- * find_listint_loop - Finds the loop contained in a listint_t linked list in the file .
- * @head: A pointer to the head of the listint_t list.
- * Return: If there is no loop - NULL in the file
- * Otherwise - the address of the node where the loop starts of the file.
+ * find_listint_loop - finds the loop in a linked list
+ * @head: linked list to search for
+ *
+ * Return: address of the node where the loop starts, or NULL
  */
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *tortoise, *hare;
+	listint_t *slow = head;
+	listint_t *fast = head;
 
-	if (head == NULL || head->next == NULL)
+	if (!head)
 		return (NULL);
 
-	tortoise = head->next;
-	hare = (head->next)->next;
-
-	while (hare)
+	while (slow && fast && fast->next)
 	{
-		if (tortoise == hare)
+		fast = fast->next->next;
+		slow = slow->next;
+		if (fast == slow)
 		{
-			tortoise = head;
-
-			while (tortoise != hare)
+			slow = head;
+			while (slow != fast)
 			{
-				tortoise = tortoise->next;
-				hare = hare->next;
+				slow = slow->next;
+				fast = fast->next;
 			}
-
-			return (tortoise);
+			return (fast);
 		}
-
-		tortoise = tortoise->next;
-		hare = (hare->next)->next;
 	}
 
 	return (NULL);
