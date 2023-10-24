@@ -1,25 +1,24 @@
-/*
- * File: 0-print_listint.c
- * Auth: Onawole abayomi robert
- */
 #include "lists.h"
 
 /**
- * print_listint - prints all the elements of a linked list
- * @h: linked list of type listint_t to print
- *
- * Return: number of nodes
+ * print_list - print elements of a list
+ * @h: constant
+ * Return: the node
  */
-size_t print_listint(const listint_t *h)
-{
-	size_t num = 0;
 
-	while (h)
+size_t print_list(const list_t *h)
+{
+	size_t node;
+
+	for (node = 0; h; node++)
 	{
-		printf("%d\n", h->n);
-		num++;
+		if (h->str == NULL)
+			printf("[0] (nil)\n");
+		else
+		{
+			printf("[%d] %s\n", h->len, h->str);
+		}
 		h = h->next;
 	}
-
-	return (num);
+	return (node);
 }
