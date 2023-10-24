@@ -41,14 +41,11 @@ size_t looped_listint_len(const listint_t *head)
 				nodes++;
 				tortoise = tortoise->next;
 			}
-
 			return (nodes);
 		}
-
 		tortoise = tortoise->next;
 		hare = (hare->next)->next;
 	}
-
 	return (0);
 }
 
@@ -58,6 +55,7 @@ size_t looped_listint_len(const listint_t *head)
  *
  * Return: The number of nodes in the list.
  */
+
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t nodes, index = 0;
@@ -80,9 +78,9 @@ size_t print_listint_safe(const listint_t *head)
 			printf("[%p] %d\n", (void *)head, head->n);
 			head = head->next;
 		}
-
-		printf("-> [%p] %d\n", (void *)head, head->n);
+	printf("-> [%p] %d\n", (void *)head, head->n);
 	}
 
 	return (nodes);
 }
+
